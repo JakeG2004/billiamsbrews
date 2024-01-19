@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://co1qyspx5yqnb"]
+
+[ext_resource type="Script" path="res://scripts/Dropzone.gd" id="1_667os"]
+[ext_resource type="Texture2D" uid="uid://cyhlatn1fltqb" path="res://assets/ingredients/blender.png" id="2_c0jss"]
+
+[node name="blender" type="Node2D" groups=["zone"]]
+script = ExtResource("1_667os")
+
+[node name="Blender" type="Sprite2D" parent="."]
+texture = ExtResource("2_c0jss")

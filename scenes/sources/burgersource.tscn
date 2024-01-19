@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://clo57a2noyau6"]
+
+[ext_resource type="Script" path="res://scripts/dragsource.gd" id="1_6e0uh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_anexk"]
+load_path = "res://.godot/imported/burger.png-59aa2dff90d416002e2ac23877734e9c.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 63.0079
+
+[node name="burgersource" type="Node2D"]
+script = ExtResource("1_6e0uh")
+path = "res://scenes/draggables/burger.tscn"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_anexk")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_sbpwc")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

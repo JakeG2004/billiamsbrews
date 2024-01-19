@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://co5su8nwfg4fg"]
+
+[ext_resource type="Script" path="res://scripts/drag.gd" id="1_3c8bu"]
+[ext_resource type="Texture2D" uid="uid://dh82scnc6q3vp" path="res://assets/ingredients/crystallized_honey.png" id="2_s6s44"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 63.0079
+
+[node name="leaf" type="Node2D"]
+script = ExtResource("1_3c8bu")
+ingredient = "honey"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_s6s44")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_sbpwc")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

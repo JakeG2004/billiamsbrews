@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://0aiol4eevgyl"]
+
+[ext_resource type="Script" path="res://scripts/dragsource.gd" id="1_p7bak"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_suags"]
+load_path = "res://.godot/imported/leaf.png-c2846638d480f99c8decc2d2bd9ad8cd.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 63.0079
+
+[node name="leafsource" type="Node2D"]
+script = ExtResource("1_p7bak")
+path = "res://scenes/draggables/leaf.tscn"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_suags")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_sbpwc")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

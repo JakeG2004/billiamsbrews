@@ -1,0 +1,17 @@
+Ingredients
+
+1) leaf - done
+2) burger - done
+3) gold powder - done
+4) spring - done
+5) Obisidian shard - done
+6) Ogre's blood - done
+7) Sunflower pedals - done
+8) Crystalized honey - done
+9) Firefly - done
+
+Healing potion - Leaf, sunflower pedals, crystallized honey
+Fire resist - Obsidian shard, gold powder, crystalized honey
+Strength - Ogre's blood, obsidian shard, burger
+Shine - Firefly, crystallized honey, sunflower pedals
+Jump Boost - Spring, firefly, leaf

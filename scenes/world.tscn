@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://vft3hymsygen"]
+
+[ext_resource type="PackedScene" uid="uid://co1qyspx5yqnb" path="res://scenes/blender.tscn" id="2_iyg8x"]
+[ext_resource type="PackedScene" uid="uid://0aiol4eevgyl" path="res://scenes/sources/leafsource.tscn" id="2_nyxc0"]
+[ext_resource type="PackedScene" uid="uid://clo57a2noyau6" path="res://scenes/sources/burgersource.tscn" id="3_dwtht"]
+[ext_resource type="PackedScene" uid="uid://bgqhuydeadm0b" path="res://scenes/sources/goldsource.tscn" id="4_4f0w1"]
+[ext_resource type="PackedScene" uid="uid://ykkk6jv32qxq" path="res://scenes/sources/springsource.tscn" id="5_1vjnm"]
+[ext_resource type="PackedScene" uid="uid://7qphe17ylbm" path="res://scenes/sources/obsidiansource.tscn" id="6_rg66g"]
+[ext_resource type="PackedScene" uid="uid://cf6tupcqyouxs" path="res://scenes/sources/bloodsource.tscn" id="7_bh5qk"]
+[ext_resource type="PackedScene" uid="uid://cj4ptbmodu7cb" path="res://scenes/sources/pedalsource.tscn" id="8_068ve"]
+[ext_resource type="PackedScene" uid="uid://d0ru24ifqcwqe" path="res://scenes/sources/honeysource.tscn" id="9_5nvw4"]
+[ext_resource type="PackedScene" uid="uid://hiu0b6wke17h" path="res://scenes/sources/fireflysource.tscn" id="10_eegvy"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="blender" parent="." instance=ExtResource("2_iyg8x")]
+position = Vector2(-2, 138)
+
+[node name="ingredients" type="Node2D" parent="."]
+
+[node name="burgersource" parent="ingredients" instance=ExtResource("3_dwtht")]
+position = Vector2(-439, -247)
+scale = Vector2(0.5, 0.5)
+
+[node name="leafsource" parent="ingredients" instance=ExtResource("2_nyxc0")]
+position = Vector2(-431, -19)
+
+[node name="goldsource" parent="ingredients" instance=ExtResource("4_4f0w1")]
+position = Vector2(-433, 208)
+
+[node name="springsource" parent="ingredients" instance=ExtResource("5_1vjnm")]
+position = Vector2(-190, -243)
+
+[node name="obsidiansource" parent="ingredients" instance=ExtResource("6_rg66g")]
+position = Vector2(-217, -25)
+
+[node name="bloodsource" parent="ingredients" instance=ExtResource("7_bh5qk")]
+position = Vector2(5, -228)
+
+[node name="springsource2" parent="ingredients" instance=ExtResource("8_068ve")]
+position = Vector2(-12, -64)
+
+[node name="honeysource" parent="ingredients" instance=ExtResource("9_5nvw4")]
+position = Vector2(229, -201)
+
+[node name="fireflysource" parent="ingredients" instance=ExtResource("10_eegvy")]
+position = Vector2(297, -50)

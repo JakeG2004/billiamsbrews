@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ykkk6jv32qxq"]
+
+[ext_resource type="Script" path="res://scripts/dragsource.gd" id="1_i12ex"]
+[ext_resource type="Texture2D" uid="uid://cj56eelrv2qsq" path="res://assets/ingredients/spring.png" id="2_1q7w0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 63.0079
+
+[node name="springsource" type="Node2D"]
+script = ExtResource("1_i12ex")
+path = "res://scenes/draggables/spring.tscn"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_1q7w0")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_sbpwc")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

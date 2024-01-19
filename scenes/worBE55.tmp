@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://vft3hymsygen"]
+
+[ext_resource type="PackedScene" uid="uid://co1qyspx5yqnb" path="res://scenes/dropzone.tscn" id="2_iyg8x"]
+[ext_resource type="PackedScene" uid="uid://0aiol4eevgyl" path="res://scenes/leafsource.tscn" id="2_nyxc0"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Dropzone" parent="." instance=ExtResource("2_iyg8x")]
+position = Vector2(-325, 209)
+
+[node name="Dropzone2" parent="." instance=ExtResource("2_iyg8x")]
+position = Vector2(281, -124)
+
+[node name="Dropzone3" parent="." instance=ExtResource("2_iyg8x")]
+position = Vector2(258, 189)
+
+[node name="Node2D" parent="." instance=ExtResource("2_nyxc0")]
+position = Vector2(-440, -202)
+path = "res://scenes/dragndrop.tscn"

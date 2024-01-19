@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4babftxb0d2y"]
+
+[ext_resource type="Script" path="res://scripts/drag.gd" id="1_2q6o4"]
+[ext_resource type="Texture2D" uid="uid://bnjrjo1a1wo1e" path="res://assets/ingredients/ogres_blood.png" id="2_620xk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 63.0079
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s14h6"]
+particle_flag_disable_z = true
+angle_min = -210.3
+angle_max = 388.3
+spread = 18.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 200, 0)
+scale_min = 5.0
+scale_max = 10.0
+color = Color(0.505882, 0, 0.054902, 1)
+hue_variation_min = -0.07
+hue_variation_max = 0.07
+
+[node name="leaf" type="Node2D"]
+script = ExtResource("1_2q6o4")
+ingredient = "blood"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_620xk")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_sbpwc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+rotation = 1.59476
+process_material = SubResource("ParticleProcessMaterial_s14h6")
+lifetime = 2.0
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

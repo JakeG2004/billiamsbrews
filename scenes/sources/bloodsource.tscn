@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf6tupcqyouxs"]
+
+[ext_resource type="Script" path="res://scripts/dragsource.gd" id="1_ciys8"]
+[ext_resource type="Texture2D" uid="uid://bnjrjo1a1wo1e" path="res://assets/ingredients/ogres_blood.png" id="2_og2sm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 63.0079
+
+[node name="bloodsource" type="Node2D"]
+script = ExtResource("1_ciys8")
+path = "res://scenes/draggables/blood.tscn"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_og2sm")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_sbpwc")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]
