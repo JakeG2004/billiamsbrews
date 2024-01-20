@@ -8,6 +8,9 @@ var should_delete = false  # Flag to indicate whether the node should be deleted
 var blender
 var shortest_dist = 75
 
+@export var size = ""
+@export var type = 0
+
 func _ready():
 	rest_point = get_parent().global_position
 	blender = get_tree().get_root().get_node("World/blender")
@@ -38,3 +41,7 @@ func _physics_process(delta):
 		# Check if the node has reached the rest point and should be deleted
 		if should_delete and global_position.distance_to(rest_point) < 5:
 			queue_free()
+			
+func setData(dSize, dType):
+	size = dSize
+	type = dType

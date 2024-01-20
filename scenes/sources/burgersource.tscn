@@ -5,8 +5,8 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_anexk"]
 load_path = "res://.godot/imported/burger.png-59aa2dff90d416002e2ac23877734e9c.ctex"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
-radius = 63.0079
+[sub_resource type="CircleShape2D" id="CircleShape2D_8yij1"]
+radius = 91.9918
 
 [node name="burgersource" type="Node2D"]
 script = ExtResource("1_6e0uh")
@@ -18,6 +18,7 @@ texture = SubResource("CompressedTexture2D_anexk")
 [node name="Area2D" type="Area2D" parent="Icon"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
-shape = SubResource("CircleShape2D_sbpwc")
+position = Vector2(1.5, -2.5)
+shape = SubResource("CircleShape2D_8yij1")
 
 [connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

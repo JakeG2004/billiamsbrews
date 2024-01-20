@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://8x6y01688e2y"]
+
+[ext_resource type="Script" path="res://scripts/drag.gd" id="1_whpf6"]
+[ext_resource type="Texture2D" uid="uid://d0pl8a68vgedl" path="res://assets/potions/small3.png" id="2_k202f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 63.0079
+
+[node name="small6" type="Node2D"]
+script = ExtResource("1_whpf6")
+ingredient = "blood"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_k202f")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+shape = SubResource("CircleShape2D_sbpwc")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

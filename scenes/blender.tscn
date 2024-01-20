@@ -1,10 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://co1qyspx5yqnb"]
+[gd_scene load_steps=5 format=3 uid="uid://co1qyspx5yqnb"]
 
-[ext_resource type="Script" path="res://scripts/Dropzone.gd" id="1_667os"]
+[ext_resource type="Script" path="res://scripts/blender.gd" id="1_204qf"]
 [ext_resource type="Texture2D" uid="uid://cyhlatn1fltqb" path="res://assets/ingredients/blender.png" id="2_c0jss"]
+[ext_resource type="Texture2D" uid="uid://e1s6l5krvm2o" path="res://icon.svg" id="3_8behk"]
 
-[node name="blender" type="Node2D" groups=["zone"]]
-script = ExtResource("1_667os")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o4t7"]
+size = Vector2(127, 125)
+
+[node name="blender" type="Node2D" groups=["blender"]]
+script = ExtResource("1_204qf")
 
 [node name="Blender" type="Sprite2D" parent="."]
 texture = ExtResource("2_c0jss")
+
+[node name="potion" type="Node2D" parent="."]
+position = Vector2(190, 0)
+
+[node name="blendbutton" type="Sprite2D" parent="."]
+position = Vector2(-225, 87)
+texture = ExtResource("3_8behk")
+
+[node name="Area2D" type="Area2D" parent="blendbutton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blendbutton/Area2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_0o4t7")
+
+[node name="emptybutton" type="Sprite2D" parent="."]
+position = Vector2(194, 83)
+texture = ExtResource("3_8behk")
+
+[node name="Area2D" type="Area2D" parent="emptybutton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emptybutton/Area2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_0o4t7")
+
+[node name="pourbutton" type="Sprite2D" parent="."]
+position = Vector2(357, 87)
+texture = ExtResource("3_8behk")
+
+[node name="Area2D" type="Area2D" parent="pourbutton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pourbutton/Area2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_0o4t7")
+
+[connection signal="input_event" from="blendbutton/Area2D" to="." method="_on_blend"]
+[connection signal="input_event" from="emptybutton/Area2D" to="." method="_on_empty"]
+[connection signal="input_event" from="pourbutton/Area2D" to="." method="_on_pour"]

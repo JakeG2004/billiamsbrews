@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vft3hymsygen"]
+[gd_scene load_steps=14 format=3 uid="uid://vft3hymsygen"]
 
 [ext_resource type="PackedScene" uid="uid://co1qyspx5yqnb" path="res://scenes/blender.tscn" id="2_iyg8x"]
 [ext_resource type="PackedScene" uid="uid://0aiol4eevgyl" path="res://scenes/sources/leafsource.tscn" id="2_nyxc0"]
@@ -10,25 +10,26 @@
 [ext_resource type="PackedScene" uid="uid://cj4ptbmodu7cb" path="res://scenes/sources/pedalsource.tscn" id="8_068ve"]
 [ext_resource type="PackedScene" uid="uid://d0ru24ifqcwqe" path="res://scenes/sources/honeysource.tscn" id="9_5nvw4"]
 [ext_resource type="PackedScene" uid="uid://hiu0b6wke17h" path="res://scenes/sources/fireflysource.tscn" id="10_eegvy"]
+[ext_resource type="PackedScene" uid="uid://bmboasiq24pq" path="res://scenes/sources/smallsource.tscn" id="11_2ancd"]
+[ext_resource type="PackedScene" uid="uid://bwluxdgstkjbj" path="res://scenes/sources/mediumsource.tscn" id="12_gosdn"]
+[ext_resource type="PackedScene" uid="uid://hqgmk74u7uuw" path="res://scenes/sources/largesource.tscn" id="13_vvqmg"]
 
 [node name="World" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="blender" parent="." instance=ExtResource("2_iyg8x")]
-position = Vector2(-2, 138)
-
 [node name="ingredients" type="Node2D" parent="."]
 
 [node name="burgersource" parent="ingredients" instance=ExtResource("3_dwtht")]
-position = Vector2(-439, -247)
+position = Vector2(449, -233)
 scale = Vector2(0.5, 0.5)
 
 [node name="leafsource" parent="ingredients" instance=ExtResource("2_nyxc0")]
-position = Vector2(-431, -19)
+position = Vector2(457, -39)
+scale = Vector2(0.6, 0.6)
 
 [node name="goldsource" parent="ingredients" instance=ExtResource("4_4f0w1")]
-position = Vector2(-433, 208)
+position = Vector2(144, -62)
 
 [node name="springsource" parent="ingredients" instance=ExtResource("5_1vjnm")]
 position = Vector2(-190, -243)
@@ -47,3 +48,15 @@ position = Vector2(229, -201)
 
 [node name="fireflysource" parent="ingredients" instance=ExtResource("10_eegvy")]
 position = Vector2(297, -50)
+
+[node name="blender" parent="." instance=ExtResource("2_iyg8x")]
+position = Vector2(4, 143)
+
+[node name="largesource" parent="." instance=ExtResource("13_vvqmg")]
+position = Vector2(-457, 159)
+
+[node name="mediumsource" parent="." instance=ExtResource("12_gosdn")]
+position = Vector2(-459, -71)
+
+[node name="smallsource" parent="." instance=ExtResource("11_2ancd")]
+position = Vector2(-453, -253)

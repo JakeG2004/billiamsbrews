@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0t6destj7pv5"]
+
+[ext_resource type="Script" path="res://scripts/potdrag.gd" id="1_nx44a"]
+[ext_resource type="Texture2D" uid="uid://bwax3ovigivct" path="res://assets/potions/small_empty.png" id="2_2k7em"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
+radius = 50.0899
+
+[node name="leaf" type="Node2D"]
+script = ExtResource("1_nx44a")
+size = "small"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_2k7em")
+
+[node name="Area2D" type="Area2D" parent="Icon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_sbpwc")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]
