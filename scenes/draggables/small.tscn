@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0t6destj7pv5"]
 
-[ext_resource type="Script" path="res://scripts/potdrag.gd" id="1_nx44a"]
+[ext_resource type="Script" path="res://scripts/bottledrag.gd" id="1_nx44a"]
 [ext_resource type="Texture2D" uid="uid://bwax3ovigivct" path="res://assets/potions/small_empty.png" id="2_2k7em"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]

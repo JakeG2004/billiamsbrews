@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://7aympvnerdj3"]
 
-[ext_resource type="Script" path="res://scripts/drag.gd" id="1_mlfoj"]
+[ext_resource type="Script" path="res://scripts/ingredientdrag.gd" id="1_mlfoj"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_suags"]
 load_path = "res://.godot/imported/leaf.png-c2846638d480f99c8decc2d2bd9ad8cd.ctex"

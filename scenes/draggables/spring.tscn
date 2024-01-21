@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://duomae7le2njw"]
 
-[ext_resource type="Script" path="res://scripts/drag.gd" id="1_mfjfn"]
+[ext_resource type="Script" path="res://scripts/ingredientdrag.gd" id="1_mfjfn"]
 [ext_resource type="Texture2D" uid="uid://cj56eelrv2qsq" path="res://assets/ingredients/spring.png" id="2_5uxac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]

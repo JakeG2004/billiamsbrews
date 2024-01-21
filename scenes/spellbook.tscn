@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7qgwuklw63y3"]
+
+[ext_resource type="Texture2D" uid="uid://j57wlpmq6dp5" path="res://assets/gui/spellbook/spellbook-1.png" id="1_dqyqh"]
+[ext_resource type="Script" path="res://scripts/spellbook.gd" id="1_j2n3b"]
+[ext_resource type="Texture2D" uid="uid://e1s6l5krvm2o" path="res://icon.svg" id="3_e0wku"]
+[ext_resource type="AudioStream" uid="uid://bhifjlimuxupj" path="res://assets/audio/page-flip-47177.mp3" id="3_gpi73"]
+[ext_resource type="Texture2D" uid="uid://cq4ttpi45a3pb" path="res://assets/gui/spellbook/uparrow.png" id="4_r6krw"]
+[ext_resource type="Texture2D" uid="uid://h0odd5bgcck4" path="res://assets/gui/spellbook/sidearrow.png" id="4_s8efu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oby7"]
+size = Vector2(185.542, 91.5663)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3mp8"]
+size = Vector2(185, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkcjq"]
+size = Vector2(304.273, 59.6492)
+
+[sub_resource type="Animation" id="Animation_iq36p"]
+resource_name = "toggle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pageContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 600)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_gpi73")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_674v5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pageContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gsgqs"]
+_data = {
+"RESET": SubResource("Animation_674v5"),
+"toggle": SubResource("Animation_iq36p")
+}
+
+[node name="spellbook" type="Node2D"]
+script = ExtResource("1_j2n3b")
+
+[node name="pageContainer" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="pageContainer"]
+scale = Vector2(3.605, 4.66)
+texture = ExtResource("3_e0wku")
+
+[node name="page" type="Sprite2D" parent="pageContainer"]
+unique_name_in_owner = true
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_dqyqh")
+
+[node name="back" type="Sprite2D" parent="pageContainer"]
+position = Vector2(-165, 247)
+scale = Vector2(-0.415, 0.415)
+texture = ExtResource("4_s8efu")
+
+[node name="Area2D" type="Area2D" parent="pageContainer/back"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pageContainer/back/Area2D"]
+position = Vector2(-1.20483, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2oby7")
+
+[node name="forward" type="Sprite2D" parent="pageContainer"]
+position = Vector2(165, 247)
+scale = Vector2(0.415, 0.415)
+texture = ExtResource("4_s8efu")
+
+[node name="Area2D" type="Area2D" parent="pageContainer/forward"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pageContainer/forward/Area2D"]
+position = Vector2(-0.5, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_v3mp8")
+
+[node name="toggle" type="Sprite2D" parent="pageContainer"]
+position = Vector2(-1, -271)
+scale = Vector2(0.585, -0.57)
+texture = ExtResource("4_r6krw")
+
+[node name="Area2D" type="Area2D" parent="pageContainer/toggle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pageContainer/toggle/Area2D"]
+position = Vector2(1.7094, -1.75439)
+shape = SubResource("RectangleShape2D_vkcjq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gsgqs")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="input_event" from="pageContainer/back/Area2D" to="." method="_on_back"]
+[connection signal="input_event" from="pageContainer/forward/Area2D" to="." method="_on_forward"]
+[connection signal="input_event" from="pageContainer/toggle/Area2D" to="." method="_on_toggle"]

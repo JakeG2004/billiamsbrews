@@ -11,6 +11,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gnv1n")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 323)
+
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -46,8 +49,6 @@ text = "Music"
 [node name="exit" type="Button" parent="BoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Exit game"
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="BoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer/credits" to="." method="_on_credits_pressed"]

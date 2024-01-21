@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dh82scnc6q3vp" path="res://assets/ingredients/crystallized_honey.png" id="2_k8mq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbpwc"]
-radius = 63.0079
+radius = 362.244
 
 [node name="honeysource" type="Node2D"]
 script = ExtResource("1_i2dsm")
 path = "res://scenes/draggables/honey.tscn"
 
 [node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_k8mq0")
 
 [node name="Area2D" type="Area2D" parent="Icon"]
