@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://byri6j2h1p6ib"]
+
+[ext_resource type="AudioStream" uid="uid://k3b4htjgnv2l" path="res://assets/audio/music/cats_theme.mp3" id="2_fe8g0"]
+[ext_resource type="PackedScene" uid="uid://cqpi1asi3ym5x" path="res://scenes/draggables/potions/potion.tscn" id="2_tqv8u"]
+[ext_resource type="Script" path="res://scripts/menudrag.gd" id="3_58ov0"]
+
+[node name="world" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fe8g0")
+autoplay = true
+
+[node name="small6" parent="." instance=ExtResource("2_tqv8u")]
+position = Vector2(428, 191)
+script = ExtResource("3_58ov0")

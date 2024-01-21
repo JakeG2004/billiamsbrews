@@ -1,9 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://co1qyspx5yqnb"]
+[gd_scene load_steps=13 format=3 uid="uid://co1qyspx5yqnb"]
 
 [ext_resource type="Script" path="res://scripts/blender.gd" id="1_204qf"]
 [ext_resource type="Texture2D" uid="uid://cyhlatn1fltqb" path="res://assets/ingredients/blender.png" id="2_c0jss"]
-[ext_resource type="Texture2D" uid="uid://e1s6l5krvm2o" path="res://icon.svg" id="3_8behk"]
 [ext_resource type="AudioStream" uid="uid://dol3thtm7uhw5" path="res://assets/audio/blend.wav" id="3_wvu01"]
+[ext_resource type="AudioStream" uid="uid://crbv5nmajxv6j" path="res://assets/audio/potionbreak.wav" id="4_anqjs"]
+[ext_resource type="Texture2D" uid="uid://cfm2p6ojo52qi" path="res://assets/ingredients/blender_buttons.png" id="4_nscjn"]
+[ext_resource type="Texture2D" uid="uid://bj5ggq2qkmftm" path="res://assets/ingredients/stool.png" id="5_hb4ut"]
+
+[sub_resource type="Animation" id="Animation_ovyme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
 
 [sub_resource type="Animation" id="Animation_q2yfe"]
 resource_name = "blend"
@@ -48,8 +89,8 @@ tracks/2/keys = {
 }
 tracks/2/use_blend = true
 
-[sub_resource type="Animation" id="Animation_ovyme"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_e1wjx"]
+resource_name = "empty"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,10 +98,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1, -1), Vector2(-102.675, -1), Vector2(600, -1), Vector2(1000, -1000), Vector2(-1000, -500), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,25 +110,94 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, -0.565487, 3.8118, 3.8118, 4.51691, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.7, 0.7), Vector2(0.1, 0.1), Vector2(0.1, 0.1), Vector2(0.6, 0.6), Vector2(0.6, 0.6)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_anqjs")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_guq5a"]
+resource_name = "pour"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -1), Vector2(0, 0), Vector2(36.43, -146.67), Vector2(132.315, -217.085), Vector2(132.315, -217.085), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.5324, 2.37888, 2.37888, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(0.745, 0.745), Vector2(0.6, 0.6), Vector2(0.6, 0.6)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f57s8"]
 _data = {
 "RESET": SubResource("Animation_ovyme"),
-"blend": SubResource("Animation_q2yfe")
+"blend": SubResource("Animation_q2yfe"),
+"empty": SubResource("Animation_e1wjx"),
+"pour": SubResource("Animation_guq5a")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0o4t7"]
-size = Vector2(127, 125)
+size = Vector2(31, 44)
 
 [node name="blender" type="Node2D" groups=["blender"]]
 script = ExtResource("1_204qf")
 
 [node name="Blender" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_c0jss")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Blender"]
@@ -97,39 +207,38 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Blender"]
 
+[node name="BlenderButtons" type="Sprite2D" parent="Blender"]
+texture = ExtResource("4_nscjn")
+
 [node name="potion" type="Node2D" parent="." groups=["potzone"]]
-position = Vector2(190, 0)
+position = Vector2(190, -29.32)
 
-[node name="blendbutton" type="Sprite2D" parent="."]
-position = Vector2(-225, 87)
-texture = ExtResource("3_8behk")
+[node name="blendbutton" type="Area2D" parent="."]
+position = Vector2(42, 88)
 
-[node name="Area2D" type="Area2D" parent="blendbutton"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blendbutton"]
+position = Vector2(-2.5, -1)
+shape = SubResource("RectangleShape2D_0o4t7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="blendbutton/Area2D"]
+[node name="emptybutton" type="Area2D" parent="."]
+position = Vector2(-32, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emptybutton"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_0o4t7")
 
-[node name="emptybutton" type="Sprite2D" parent="."]
-position = Vector2(194, 83)
-texture = ExtResource("3_8behk")
+[node name="pourbutton" type="Area2D" parent="."]
+position = Vector2(3, 87)
 
-[node name="Area2D" type="Area2D" parent="emptybutton"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="emptybutton/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pourbutton"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_0o4t7")
 
-[node name="pourbutton" type="Sprite2D" parent="."]
-position = Vector2(357, 87)
-texture = ExtResource("3_8behk")
+[node name="Stool" type="Sprite2D" parent="."]
+position = Vector2(182, 91)
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("5_hb4ut")
 
-[node name="Area2D" type="Area2D" parent="pourbutton"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pourbutton/Area2D"]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_0o4t7")
-
-[connection signal="input_event" from="blendbutton/Area2D" to="." method="_on_blend"]
-[connection signal="input_event" from="emptybutton/Area2D" to="." method="_on_empty"]
-[connection signal="input_event" from="pourbutton/Area2D" to="." method="_on_pour"]
+[connection signal="input_event" from="blendbutton" to="." method="_on_blend"]
+[connection signal="input_event" from="emptybutton" to="." method="_on_empty"]
+[connection signal="input_event" from="pourbutton" to="." method="_on_pour"]

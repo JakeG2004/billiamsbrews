@@ -15,8 +15,8 @@ var shortest_dist = 75
 func _ready():
 	name = "bottle"
 	rest_point = get_parent().global_position
-	potion_point = get_tree().get_root().get_node("World/blender/potion")
-	blender = get_tree().get_root().get_node("World/blender")
+	potion_point = get_tree().get_root().get_node("SceneManager/World/blender/potion")
+	blender = get_tree().get_root().get_node("SceneManager/World/blender")
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if (Input.is_action_just_pressed("click")):

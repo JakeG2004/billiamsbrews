@@ -12,14 +12,14 @@ var failure_card
 @onready var ap = get_node("AnimationPlayer")
 
 func _ready():
-	var pot_point = get_tree().get_root().get_node("World/blender/potion")
+	var pot_point = get_tree().get_root().get_node("SceneManager/World/blender/potion")
 	rest_nodes = get_tree().get_nodes_in_group("potzone")
 	rest_point = pot_point.global_position
 	global_position = rest_point
 
 	# Assuming you have nodes named "SuccessCard" and "FailureCard"
-	success_card = get_tree().get_root().get_node("World/pass")
-	failure_card = get_tree().get_root().get_node("World/fail")
+	success_card = get_tree().get_root().get_node("SceneManager/World/pass")
+	failure_card = get_tree().get_root().get_node("SceneManager/World/fail")
 
 func _on_area2D_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
@@ -65,4 +65,3 @@ func passToCustomer():
 	
 func destroyPot():
 	ap.play("destroy")
-

@@ -7,6 +7,7 @@ var size
 var currentPot = NOPOT
 
 @onready var ap = get_node("Blender/AnimationPlayer")
+@onready var audio = get_node("Blender/AudioStreamPlayer")
 
 var click_processed = false  # Flag to track whether the click has been processed
 
@@ -24,10 +25,12 @@ func append(ingredient):
 
 	# add ingredient
 	ingredients.append(ingredient)
+	audio.stream = load("res://assets/audio/click.mp3")
+	audio.play()
+	
 
 func addPotion(bottleSize):
 	size = bottleSize
-	print(size)
 
 func blend():
 	ap.play("blend")
@@ -55,16 +58,15 @@ func blend():
 	# Poison potion
 	if (ingredients.has("blood") and ingredients.has("obsidian") and ingredients.has("firefly") and ingredients.size() == 3):
 		returnValue = POISON
-
-	empty()
+		
 	return returnValue
 
 func empty():
-	print("empty")
 	ingredients = []
 
 func pour():
 	if (size != "empty" and currentPot != NOPOT):
+		ap.play("pour")
 		# define potion to brew
 		var draggable = load("res://scenes/draggables/potions/potion.tscn")
 
@@ -76,15 +78,17 @@ func pour():
 		# delete old bottle
 		get_node("bottle").queue_free()
 		size = "empty"
+		
+		empty()
 
 func _on_blend(_viewport, _event, _shape_idx):
 	if (Input.is_action_just_pressed("click") and not click_processed):
 		currentPot = blend()
-		print(currentPot)
 		click_processed = true
 
 func _on_empty(_viewport, _event, _shape_idx):
 	if (Input.is_action_just_pressed("click") and not click_processed):
+		ap.play("empty")
 		empty()
 		click_processed = true
 
@@ -93,6 +97,6 @@ func _on_pour(_viewport, _event, _shape_idx):
 		pour()
 		click_processed = true
 
-func _input(event):
+func _input(_event):
 	if (Input.is_action_just_released("click")):
 		click_processed = false  # Reset the flag

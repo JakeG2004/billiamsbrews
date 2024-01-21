@@ -16,6 +16,21 @@ size = Vector2(185, 88)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkcjq"]
 size = Vector2(304.273, 59.6492)
 
+[sub_resource type="Animation" id="Animation_674v5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pageContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 600)]
+}
+
 [sub_resource type="Animation" id="Animation_iq36p"]
 resource_name = "toggle"
 length = 0.1
@@ -47,21 +62,6 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
-[sub_resource type="Animation" id="Animation_674v5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("pageContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gsgqs"]
 _data = {
 "RESET": SubResource("Animation_674v5"),
@@ -72,6 +72,7 @@ _data = {
 script = ExtResource("1_j2n3b")
 
 [node name="pageContainer" type="Node2D" parent="."]
+position = Vector2(0, 600)
 
 [node name="Icon" type="Sprite2D" parent="pageContainer"]
 scale = Vector2(3.605, 4.66)
@@ -91,7 +92,6 @@ texture = ExtResource("4_s8efu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pageContainer/back/Area2D"]
 position = Vector2(-1.20483, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2oby7")
 
 [node name="forward" type="Sprite2D" parent="pageContainer"]
@@ -103,12 +103,11 @@ texture = ExtResource("4_s8efu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pageContainer/forward/Area2D"]
 position = Vector2(-0.5, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v3mp8")
 
 [node name="toggle" type="Sprite2D" parent="pageContainer"]
 position = Vector2(-1, -271)
-scale = Vector2(0.585, -0.57)
+scale = Vector2(-0.585, 0.57)
 texture = ExtResource("4_r6krw")
 
 [node name="Area2D" type="Area2D" parent="pageContainer/toggle"]

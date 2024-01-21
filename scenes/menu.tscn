@@ -1,56 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://byri6j2h1p6ib"]
+[gd_scene load_steps=7 format=3 uid="uid://byri6j2h1p6ib"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_gnv1n"]
+[ext_resource type="AudioStream" uid="uid://k3b4htjgnv2l" path="res://assets/audio/music/cats_theme.mp3" id="2_fe8g0"]
+[ext_resource type="PackedScene" uid="uid://cqpi1asi3ym5x" path="res://scenes/draggables/potions/potion.tscn" id="2_tqv8u"]
+[ext_resource type="Script" path="res://scripts/menudrag.gd" id="3_58ov0"]
+[ext_resource type="Texture2D" uid="uid://bcaxcj02mp2il" path="res://assets/gui/pass.png" id="3_c3ron"]
 
-[node name="Menu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_gnv1n")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bop0w"]
+size = Vector2(342, 499)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(575, 323)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fexrw"]
+size = Vector2(348, 503)
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -153.0
-offset_top = -20.0
-offset_right = 153.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="world" type="Node2D"]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-metadata/_edit_use_anchors_ = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fe8g0")
+autoplay = true
 
-[node name="start" type="Button" parent="BoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Start game"
+[node name="play" type="Sprite2D" parent="."]
+position = Vector2(171, 581)
+texture = ExtResource("3_c3ron")
 
-[node name="credits" type="Button" parent="BoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Credits"
+[node name="Area2D" type="Area2D" parent="play" groups=["potzone"]]
 
-[node name="music" type="Button" parent="BoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Music"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="play/Area2D"]
+position = Vector2(-2, 3.5)
+shape = SubResource("RectangleShape2D_bop0w")
 
-[node name="exit" type="Button" parent="BoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Exit game"
+[node name="exit" type="Sprite2D" parent="."]
+position = Vector2(911, 583)
+texture = ExtResource("3_c3ron")
 
-[connection signal="pressed" from="BoxContainer/HBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="BoxContainer/HBoxContainer/credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="BoxContainer/HBoxContainer/music" to="." method="_on_music_pressed"]
-[connection signal="pressed" from="BoxContainer/HBoxContainer/exit" to="." method="_on_exit_pressed"]
+[node name="Area2D" type="Area2D" parent="exit" groups=["potzone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit/Area2D"]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_fexrw")
+
+[node name="potion" parent="." instance=ExtResource("2_tqv8u")]
+position = Vector2(428, 191)
+script = ExtResource("3_58ov0")
+
+[node name="music" type="Node2D" parent="."]
+
+[node name="credits" type="Node2D" parent="."]

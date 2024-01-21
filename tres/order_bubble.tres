@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c87g1wfiyj8qq"]
+
+[ext_resource type="FontFile" uid="uid://ci8vjx2qtfu2m" path="res://assets/gui/MATURASC.TTF" id="1_wcgys"]
+
+[resource]
+default_font = ExtResource("1_wcgys")
+default_font_size = 12

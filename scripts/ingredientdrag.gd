@@ -13,7 +13,7 @@ var shortest_dist = 75
 
 func _ready():
 	rest_point = get_parent().global_position
-	blender = get_tree().get_root().get_node("World/blender")
+	blender = get_tree().get_root().get_node("SceneManager/World/blender")
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if (Input.is_action_just_pressed("click")):

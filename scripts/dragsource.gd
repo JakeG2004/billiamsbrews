@@ -12,6 +12,6 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 		add_child(instanced_scene)
 		click_processed = true
 		
-func _input(event):
+func _input(_event):
 	if(Input.is_action_just_released("click")):
 		click_processed = false
