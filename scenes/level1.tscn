@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://vft3hymsygen"]
+[gd_scene load_steps=22 format=3 uid="uid://q2y2iool5trb"]
 
 [ext_resource type="Texture2D" uid="uid://baujyio84afba" path="res://assets/bg.png" id="1_vdy1f"]
 [ext_resource type="PackedScene" uid="uid://bw3nu0ostj2ap" path="res://scenes/fail.tscn" id="2_t8r7s"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b7qgwuklw63y3" path="res://scenes/spellbook.tscn" id="18_vbdfi"]
 [ext_resource type="PackedScene" uid="uid://b748b2h5q8iwy" path="res://scenes/customer_controller.tscn" id="19_rmpdj"]
 [ext_resource type="AudioStream" uid="uid://dff1wx4e7tkc2" path="res://assets/audio/music/first_theme_sploingy.mp3" id="20_2y4bn"]
+[ext_resource type="PackedScene" uid="uid://b7ic3ox7ery5" path="res://scenes/pause_menu.tscn" id="21_ejrvu"]
 
 [node name="World" type="Node2D"]
 
@@ -92,13 +93,18 @@ position = Vector2(-459, -71)
 [node name="smallsource" parent="bottles" instance=ExtResource("16_5pb5s")]
 position = Vector2(-453, -253)
 
-[node name="OrderBubble" parent="." instance=ExtResource("17_bp6q4")]
-
 [node name="spellbook" parent="." instance=ExtResource("18_vbdfi")]
 position = Vector2(-241, -21.395)
 
 [node name="CustomerController" parent="." instance=ExtResource("19_rmpdj")]
+lightMages = 11
+darkMages = 1
+minPoints = 8
+
+[node name="OrderBubble" parent="." instance=ExtResource("17_bp6q4")]
 
 [node name="musicplayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_2y4bn")
 autoplay = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("21_ejrvu")]

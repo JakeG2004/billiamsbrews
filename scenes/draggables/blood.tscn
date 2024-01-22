@@ -25,6 +25,7 @@ script = ExtResource("1_2q6o4")
 ingredient = "blood"
 
 [node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.79, 0.79)
 texture = ExtResource("2_620xk")
 
 [node name="Area2D" type="Area2D" parent="Icon"]
@@ -33,6 +34,7 @@ texture = ExtResource("2_620xk")
 shape = SubResource("CircleShape2D_sbpwc")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-100, 65)
 rotation = 1.59476
 process_material = SubResource("ParticleProcessMaterial_s14h6")
 lifetime = 2.0

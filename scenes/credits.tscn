@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7prru0pj6m8x"]
+
+[ext_resource type="Texture2D" uid="uid://baujyio84afba" path="res://assets/bg.png" id="1_8s1l8"]
+[ext_resource type="Theme" uid="uid://c87g1wfiyj8qq" path="res://tres/order_bubble.tres" id="1_26sry"]
+[ext_resource type="AudioStream" uid="uid://k3b4htjgnv2l" path="res://assets/audio/music/cats_theme.mp3" id="2_3j2vw"]
+[ext_resource type="PackedScene" uid="uid://b7ic3ox7ery5" path="res://scenes/pause_menu.tscn" id="3_f42k0"]
+
+[node name="credits" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(436, 1049)
+scale = Vector2(1.70721, 2.05951)
+texture = ExtResource("1_8s1l8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 1146.0
+offset_bottom = 299.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_26sry")
+theme_override_font_sizes/font_size = 71
+text = "Music and Sounds - Valin Gabriel"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_26sry")
+theme_override_font_sizes/font_size = 71
+text = "Sprites - Nicholas Ragsdale"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_26sry")
+theme_override_font_sizes/font_size = 71
+text = "Programming - Jake Gendreau"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_26sry")
+theme_override_font_sizes/font_size = 41
+text = "Press Escape to Exit"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3j2vw")
+autoplay = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("3_f42k0")]
+position = Vector2(572, 280)

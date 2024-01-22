@@ -5,6 +5,10 @@ extends Node2D
 
 enum {LIGHTMAGE, DARKMAGE}
 
+func _ready():
+	#showBubble("small", "green", 0)
+	pass
+	
 func _process(_delta):
 	pass
 	

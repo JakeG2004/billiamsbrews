@@ -64,13 +64,20 @@ func handle_potion_placement(card):
 	destroyPot()
 		
 func passToCustomer():
+	if(click_processed):
+		return
+	click_processed = true
+	ap.play("pass")
+	await get_tree().create_timer(.1).timeout
 	cc.getPotion(size, type)
 	cc.newCustomer()
-	ap.play("pass")
 	await get_tree().create_timer(2).timeout
 	queue_free()
-	
+
 func destroyPot():
+	if(click_processed):
+		return
+	click_processed = true
 	ap.play("destroy")
 	await get_tree().create_timer(2).timeout
 	queue_free()

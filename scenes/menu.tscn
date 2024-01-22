@@ -1,46 +1,95 @@
 [gd_scene load_steps=7 format=3 uid="uid://byri6j2h1p6ib"]
 
+[ext_resource type="Texture2D" uid="uid://baujyio84afba" path="res://assets/bg.png" id="1_s552t"]
 [ext_resource type="AudioStream" uid="uid://k3b4htjgnv2l" path="res://assets/audio/music/cats_theme.mp3" id="2_fe8g0"]
 [ext_resource type="PackedScene" uid="uid://cqpi1asi3ym5x" path="res://scenes/draggables/potions/potion.tscn" id="2_tqv8u"]
 [ext_resource type="Script" path="res://scripts/menudrag.gd" id="3_58ov0"]
 [ext_resource type="Texture2D" uid="uid://bcaxcj02mp2il" path="res://assets/gui/pass.png" id="3_c3ron"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bop0w"]
-size = Vector2(342, 499)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fexrw"]
-size = Vector2(348, 503)
+[ext_resource type="Theme" uid="uid://c87g1wfiyj8qq" path="res://tres/order_bubble.tres" id="3_h1e2w"]
 
 [node name="world" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(553, -642)
+scale = Vector2(3.06465, 2.39903)
+texture = ExtResource("1_s552t")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fe8g0")
 autoplay = true
 
-[node name="play" type="Sprite2D" parent="."]
-position = Vector2(171, 581)
+[node name="play" type="Sprite2D" parent="." groups=["potzone"]]
+position = Vector2(152, 466)
+scale = Vector2(0.615, 0.615)
 texture = ExtResource("3_c3ron")
 
-[node name="Area2D" type="Area2D" parent="play" groups=["potzone"]]
+[node name="Label" type="Label" parent="play"]
+offset_left = -125.0
+offset_top = 113.0
+offset_right = 126.0
+offset_bottom = 182.0
+theme = ExtResource("3_h1e2w")
+theme_override_colors/font_color = Color(0, 0.219608, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "Play Game"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="play/Area2D"]
-position = Vector2(-2, 3.5)
-shape = SubResource("RectangleShape2D_bop0w")
-
-[node name="exit" type="Sprite2D" parent="."]
-position = Vector2(911, 583)
+[node name="music" type="Sprite2D" parent="." groups=["potzone"]]
+position = Vector2(447, 464)
+scale = Vector2(0.615, 0.615)
 texture = ExtResource("3_c3ron")
 
-[node name="Area2D" type="Area2D" parent="exit" groups=["potzone"]]
+[node name="Label" type="Label" parent="music"]
+offset_left = -130.081
+offset_top = 112.195
+offset_right = 120.919
+offset_bottom = 181.195
+theme = ExtResource("3_h1e2w")
+theme_override_colors/font_color = Color(0, 0.219608, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "Music"
+horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="exit/Area2D"]
-position = Vector2(-1, -1.5)
-shape = SubResource("RectangleShape2D_fexrw")
+[node name="credits" type="Sprite2D" parent="." groups=["potzone"]]
+position = Vector2(733, 466)
+scale = Vector2(0.615, 0.615)
+texture = ExtResource("3_c3ron")
+
+[node name="Label" type="Label" parent="credits"]
+offset_left = -130.081
+offset_top = 112.195
+offset_right = 120.919
+offset_bottom = 181.195
+theme = ExtResource("3_h1e2w")
+theme_override_colors/font_color = Color(0, 0.219608, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="exit" type="Sprite2D" parent="." groups=["potzone"]]
+position = Vector2(1009, 465)
+scale = Vector2(0.615, 0.615)
+texture = ExtResource("3_c3ron")
+
+[node name="Label" type="Label" parent="exit"]
+offset_left = -130.081
+offset_top = 112.195
+offset_right = 120.919
+offset_bottom = 181.195
+theme = ExtResource("3_h1e2w")
+theme_override_colors/font_color = Color(0, 0.219608, 0, 1)
+theme_override_font_sizes/font_size = 51
+text = "Exit Game"
+horizontal_alignment = 1
 
 [node name="potion" parent="." instance=ExtResource("2_tqv8u")]
-position = Vector2(428, 191)
+position = Vector2(568, 140)
 script = ExtResource("3_58ov0")
 
-[node name="music" type="Node2D" parent="."]
-
-[node name="credits" type="Node2D" parent="."]
+[node name="Label" type="Label" parent="."]
+offset_left = 479.0
+offset_top = 4.0
+offset_right = 658.0
+offset_bottom = 60.0
+theme = ExtResource("3_h1e2w")
+theme_override_font_sizes/font_size = 41
+text = "Drag me!"

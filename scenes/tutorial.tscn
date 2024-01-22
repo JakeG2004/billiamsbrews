@@ -1,0 +1,104 @@
+[gd_scene load_steps=21 format=3 uid="uid://qjsys1p84sup"]
+
+[ext_resource type="Texture2D" uid="uid://baujyio84afba" path="res://assets/bg.png" id="1_x7ru7"]
+[ext_resource type="PackedScene" uid="uid://bw3nu0ostj2ap" path="res://scenes/fail.tscn" id="2_j2f4s"]
+[ext_resource type="PackedScene" uid="uid://b8355huuau65t" path="res://scenes/pass.tscn" id="3_6rvu8"]
+[ext_resource type="PackedScene" uid="uid://co1qyspx5yqnb" path="res://scenes/blender.tscn" id="4_uv2g5"]
+[ext_resource type="PackedScene" uid="uid://clo57a2noyau6" path="res://scenes/sources/burgersource.tscn" id="5_hosn4"]
+[ext_resource type="PackedScene" uid="uid://0aiol4eevgyl" path="res://scenes/sources/leafsource.tscn" id="6_amww1"]
+[ext_resource type="PackedScene" uid="uid://bgqhuydeadm0b" path="res://scenes/sources/goldsource.tscn" id="7_ajfhl"]
+[ext_resource type="PackedScene" uid="uid://ykkk6jv32qxq" path="res://scenes/sources/springsource.tscn" id="8_adj3i"]
+[ext_resource type="PackedScene" uid="uid://7qphe17ylbm" path="res://scenes/sources/obsidiansource.tscn" id="9_7i3rb"]
+[ext_resource type="PackedScene" uid="uid://cf6tupcqyouxs" path="res://scenes/sources/bloodsource.tscn" id="10_28nst"]
+[ext_resource type="PackedScene" uid="uid://cj4ptbmodu7cb" path="res://scenes/sources/pedalsource.tscn" id="11_f1jr6"]
+[ext_resource type="PackedScene" uid="uid://d0ru24ifqcwqe" path="res://scenes/sources/honeysource.tscn" id="12_fird0"]
+[ext_resource type="PackedScene" uid="uid://hiu0b6wke17h" path="res://scenes/sources/fireflysource.tscn" id="13_ixwqn"]
+[ext_resource type="PackedScene" uid="uid://hqgmk74u7uuw" path="res://scenes/sources/largesource.tscn" id="14_p77mp"]
+[ext_resource type="PackedScene" uid="uid://bwluxdgstkjbj" path="res://scenes/sources/mediumsource.tscn" id="15_6vxfm"]
+[ext_resource type="PackedScene" uid="uid://bmboasiq24pq" path="res://scenes/sources/smallsource.tscn" id="16_ojg5b"]
+[ext_resource type="PackedScene" uid="uid://b7qgwuklw63y3" path="res://scenes/spellbook.tscn" id="17_6v1vh"]
+[ext_resource type="PackedScene" uid="uid://dephjkrmyh4dd" path="res://scenes/tutorial_bubble.tscn" id="18_208q2"]
+[ext_resource type="AudioStream" uid="uid://k3b4htjgnv2l" path="res://assets/audio/music/cats_theme.mp3" id="19_1m7k5"]
+[ext_resource type="PackedScene" uid="uid://b7ic3ox7ery5" path="res://scenes/pause_menu.tscn" id="21_r3apm"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Bg" type="Sprite2D" parent="Camera2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_x7ru7")
+
+[node name="fail" parent="." instance=ExtResource("2_j2f4s")]
+position = Vector2(506, 152)
+scale = Vector2(0.35, 0.35)
+
+[node name="pass" parent="." instance=ExtResource("3_6rvu8")]
+position = Vector2(506, -172)
+scale = Vector2(0.35, 0.35)
+
+[node name="blender" parent="." instance=ExtResource("4_uv2g5")]
+position = Vector2(-54, 143)
+scale = Vector2(1, 1.00459)
+
+[node name="ingredients" type="Node2D" parent="."]
+
+[node name="burgersource" parent="ingredients" instance=ExtResource("5_hosn4")]
+position = Vector2(-265, -283)
+scale = Vector2(0.5, 0.5)
+
+[node name="leafsource" parent="ingredients" instance=ExtResource("6_amww1")]
+position = Vector2(244, -275)
+rotation = 0.282056
+scale = Vector2(0.36, 0.36)
+
+[node name="goldsource" parent="ingredients" instance=ExtResource("7_ajfhl")]
+position = Vector2(373, -281)
+scale = Vector2(0.585, 0.585)
+
+[node name="springsource" parent="ingredients" instance=ExtResource("8_adj3i")]
+position = Vector2(-153, -276)
+scale = Vector2(0.61, 0.61)
+
+[node name="obsidiansource" parent="ingredients" instance=ExtResource("9_7i3rb")]
+position = Vector2(306, -273)
+rotation = -0.811578
+scale = Vector2(0.625, 0.625)
+
+[node name="bloodsource" parent="ingredients" instance=ExtResource("10_28nst")]
+position = Vector2(-75, -275)
+scale = Vector2(0.66, 0.66)
+
+[node name="springsource2" parent="ingredients" instance=ExtResource("11_f1jr6")]
+position = Vector2(3.8147e-06, -277)
+rotation = 0.600289
+scale = Vector2(0.745, 0.745)
+
+[node name="honeysource" parent="ingredients" instance=ExtResource("12_fird0")]
+position = Vector2(82, -278)
+scale = Vector2(0.54, 0.54)
+
+[node name="fireflysource" parent="ingredients" instance=ExtResource("13_ixwqn")]
+position = Vector2(165, -281)
+
+[node name="bottles" type="Node2D" parent="."]
+
+[node name="largesource" parent="bottles" instance=ExtResource("14_p77mp")]
+position = Vector2(-457, 159)
+
+[node name="mediumsource" parent="bottles" instance=ExtResource("15_6vxfm")]
+position = Vector2(-459, -71)
+
+[node name="smallsource" parent="bottles" instance=ExtResource("16_ojg5b")]
+position = Vector2(-453, -253)
+
+[node name="spellbook" parent="." instance=ExtResource("17_6v1vh")]
+position = Vector2(-241, -21.395)
+
+[node name="OrderBubble" parent="." instance=ExtResource("18_208q2")]
+
+[node name="musicplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_1m7k5")
+autoplay = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("21_r3apm")]

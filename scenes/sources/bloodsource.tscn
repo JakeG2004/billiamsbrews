@@ -11,6 +11,7 @@ script = ExtResource("1_ciys8")
 path = "res://scenes/draggables/blood.tscn"
 
 [node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_og2sm")
 
 [node name="Area2D" type="Area2D" parent="Icon"]
