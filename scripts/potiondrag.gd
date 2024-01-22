@@ -9,7 +9,11 @@ var rest_nodes = []
 var success_card
 var failure_card
 
+var click_processed = false
+
 @onready var ap = get_node("AnimationPlayer")
+
+@onready var cc = get_tree().get_root().get_node("SceneManager/World/CustomerController")
 
 func _ready():
 	var pot_point = get_tree().get_root().get_node("SceneManager/World/blender/potion")
@@ -36,7 +40,7 @@ func _on_area2D_input_event(_viewport, _event, _shape_idx):
 				#shortest_dist = distance
 				closest_card = child
 
-		if closest_card:
+		if (closest_card && !click_processed):
 			handle_potion_placement(closest_card)
 
 func _physics_process(delta):
@@ -60,8 +64,17 @@ func handle_potion_placement(card):
 	destroyPot()
 		
 func passToCustomer():
-	print("Passed to customer")
+	cc.getPotion(size, type)
+	cc.newCustomer()
 	ap.play("pass")
+	await get_tree().create_timer(2).timeout
+	queue_free()
 	
 func destroyPot():
 	ap.play("destroy")
+	await get_tree().create_timer(2).timeout
+	queue_free()
+	
+func _input(_event):
+	if(Input.is_action_just_released("click")):
+		click_processed = false

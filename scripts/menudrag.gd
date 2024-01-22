@@ -3,23 +3,26 @@ extends Node2D
 var selected = false
 var rest_point
 var rest_nodes = []
+@export var size = "none"
+@export var type = 0
 
 var play_card
-var music_card
-var credits_card
 var exit_card
+var credits_card
+var music_card
 
-var click_processed = false
+@onready var sm = get_tree().get_root().get_node("SceneManager")
 
 func _ready():
 	rest_nodes = get_tree().get_nodes_in_group("potzone")
 	rest_point = global_position
+	sm.loadLevel("level1")
 
-	# Assuming you have nodes named "SuccessCard" and "FailureCard"
+	# Assuming you have nodes named "play_card", "exit_card", "credits_card", and "music_card"
 	play_card = get_parent().get_node("play")
-	music_card = get_parent().get_node("music")
-	credits_card = get_parent().get_node("credits")
 	exit_card = get_parent().get_node("exit")
+	credits_card = get_parent().get_node("credits")
+	music_card = get_parent().get_node("music")
 
 func _on_area2D_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
@@ -32,12 +35,11 @@ func _on_area2D_input_event(_viewport, _event, _shape_idx):
 		for child in rest_nodes:
 			var distance = global_position.distance_to(child.global_position)
 			if distance < shortest_dist:
-				rest_point = child.global_position
+				shortest_dist = distance
 				closest_card = child
 
-		if closest_card && !click_processed:
+		if closest_card:
 			handle_potion_placement(closest_card)
-			click_processed = true
 
 func _physics_process(delta):
 	if selected:
@@ -47,17 +49,12 @@ func _physics_process(delta):
 
 func handle_potion_placement(card):
 	if card == play_card:
-		# Handle success card logic here
-		print("Play")
-		
-	if card == exit_card:
-		print("Exit")
-		# Handle failure card logic here
-	
-	# Reset click_processed to allow for the next placement
-	click_processed = false
-
-func _input(_event):
-	if(Input.is_action_just_released("click")):
-		# Reset click_processed when click is released without placement
-		click_processed = false
+		print("Potion placed on Play Card")
+	elif card == exit_card:
+		print("Potion placed on Exit Card")
+	elif card == credits_card:
+		print("Potion placed on Credits Card")
+	elif card == music_card:
+		print("Potion placed on Music Card")
+	else:
+		print("Potion placed on a different card")
